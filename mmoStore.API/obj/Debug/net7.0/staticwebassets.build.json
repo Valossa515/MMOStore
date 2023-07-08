@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "bFetCfXulBFvdcAHsE+FGzW+jPHht+VwJ3qMh9WGcR4=",
+  "Source": "mmoStore.API",
+  "BasePath": "_content/mmoStore.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
