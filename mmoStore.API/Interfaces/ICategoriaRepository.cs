@@ -7,5 +7,7 @@ namespace mmoStore.API.Interfaces
         List<Categoria> GetAll();
         public Categoria GetById(int id);
         public void Add(Categoria categoria);
+        public void Delete(Categoria categoria);
+        public void Update(Categoria categoria);
     }
 }

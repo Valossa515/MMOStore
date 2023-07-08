@@ -24,6 +24,13 @@ namespace mmoStore.API.Services
         {
             _categoriaRepository.Add(categoria);
         }
-
+        public void Delete(Categoria categoria)
+        {
+            _categoriaRepository.Delete(categoria);
+        }
+        public void Update(Categoria categoria)
+        {
+            _categoriaRepository.Update(categoria);
+        }
     }
 }

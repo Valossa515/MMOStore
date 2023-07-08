@@ -33,12 +33,53 @@ namespace mmoStore.API.Controllers
         [HttpPost]
         public IActionResult Add(CategoriaDTO objDto)
         {
-            var categoria = new Categoria
+            try
             {
-                Nome = objDto.Nome,
-            };
-            _categoriaService.Add(categoria);
-            return CreatedAtAction(nameof(GetById), new {id = categoria.Id}, categoria);
+                var categoria = new Categoria
+                {
+                    Nome = objDto.Nome,
+                };
+                _categoriaService.Add(categoria);
+                return CreatedAtAction(nameof(GetById), new { id = categoria.Id }, categoria);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao adicionar o produto: {ex.Message}");
+            }
+            
+        }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                var categoria = _categoriaService.GetById(id);
+                if (categoria == null)
+                    return NotFound();
+                _categoriaService.Delete(categoria);
+                return NoContent();
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, $"Erro ao deletar o produto: {ex.Message}");
+            }
+        }
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, CategoriaDTO objDto)
+        {
+            try
+            {
+                var categoria = _categoriaService.GetById(id);
+                if( categoria == null)
+                    return NotFound();
+                categoria.Nome = objDto.Nome;
+                _categoriaService.Update(categoria);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao atualizar o produto: {ex.Message}");
+            }
         }
     }
 }

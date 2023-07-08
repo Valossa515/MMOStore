@@ -28,6 +28,15 @@ namespace mmoStore.API.Repositories
             _dbContext.Categorias.Add(categoria);
             _dbContext.SaveChanges();
         }
+        public void Delete(Categoria categoria)
+        {
+            _dbContext.Categorias.Remove(categoria);
+            _dbContext.SaveChanges();
+        }
 
+        public void Update(Categoria categoria)
+        {
+            _dbContext.SaveChanges();
+        }
     }
 }
