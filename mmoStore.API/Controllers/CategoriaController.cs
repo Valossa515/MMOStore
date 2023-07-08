@@ -30,7 +30,7 @@ namespace mmoStore.API.Controllers
                 return NotFound();
             return Ok(categorias);
         }
-        [HttpPost]
+        [HttpPost("adicionar")]
         public IActionResult Add(CategoriaDTO objDto)
         {
             try
@@ -44,11 +44,11 @@ namespace mmoStore.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Erro ao adicionar o produto: {ex.Message}");
+                return StatusCode(500, $"Erro ao adicionar a categoria: {ex.Message}");
             }
             
         }
-        [HttpDelete("{id}")]
+        [HttpDelete("deletar/{id}")]
         public IActionResult Delete(int id)
         {
             try
@@ -61,10 +61,10 @@ namespace mmoStore.API.Controllers
             }
             catch(Exception ex)
             {
-                return StatusCode(500, $"Erro ao deletar o produto: {ex.Message}");
+                return StatusCode(500, $"Erro ao deletar a categoria: {ex.Message}");
             }
         }
-        [HttpPut("{id}")]
+        [HttpPut("atualizar/{id}")]
         public IActionResult Update(int id, CategoriaDTO objDto)
         {
             try
@@ -78,7 +78,7 @@ namespace mmoStore.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Erro ao atualizar o produto: {ex.Message}");
+                return StatusCode(500, $"Erro ao atualizar a categoria: {ex.Message}");
             }
         }
     }
